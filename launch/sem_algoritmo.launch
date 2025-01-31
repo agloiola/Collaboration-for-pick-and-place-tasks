@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  
+  <node pkg="cooperation_widowx_turtlebot3" name="navigation" type="navigation.py"/>
+  <node pkg="cooperation_widowx_turtlebot3" name="detach_sem_algoritmo" type="detach_sem_algoritmo.py"/> 
+  <node pkg="cooperation_widowx_turtlebot3" name="attach" type="attach.py"/>   
+  
+   <group ns="wx250s">
+    	<node pkg="cooperation_widowx_turtlebot3" name="sem_algoritmo" type="sem_algoritmo.py"/>
+  </group>
+
+</launch>
+
+<!-- <node pkg="cooperation_widowx_turtlebot3" name="detach" type="detach.py"/>  <node pkg="cooperation_widowx_turtlebot3" name="attach" type="attach.py"/>  -->
+
