@@ -20,11 +20,11 @@ def movebase_client():
     goal.target_pose.header.frame_id = "map"
     goal.target_pose.header.stamp = rospy.Time.now()
     
-    goal.target_pose.pose.position.x = 0.5
-    goal.target_pose.pose.position.y = 0.3
+    goal.target_pose.pose.position.x =-2.5
+    goal.target_pose.pose.position.y = 0.5
     
     # Converter de Euler para quaternion
-    q = quaternion_from_euler(0, 0, 0.707)  # Exemplo de ângulo em radianos
+    q = quaternion_from_euler(0, 0, 2.042)  # Exemplo de ângulo em radianos
     
     # Configurar a orientação do goal com o quaternion
     goal.target_pose.pose.orientation.x = q[0]

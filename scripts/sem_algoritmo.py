@@ -42,18 +42,15 @@ class MoveItDemo:
         hand_group = moveit_commander.MoveGroupCommander("interbotix_gripper", ns="/wx250s")
         
 
-        arm_group.set_max_velocity_scaling_factor(1.0)
-        arm_group.set_max_acceleration_scaling_factor(1.0)
+        arm_group.set_max_velocity_scaling_factor(0.5)
+        arm_group.set_max_acceleration_scaling_factor(0.5)
         
-        # Allow some leeway in position (meters) and orientation (radians)
-        arm_group.set_goal_position_tolerance(0.05)
-        arm_group.set_goal_orientation_tolerance(0.1)
         
         # Permite o replanejamento
         arm_group.allow_replanning(True)
         
         # tempo por tentativa de planejamento
-        arm_group.set_planning_time(10)
+        arm_group.set_planning_time(15)
         
         # Limite de tentativas de pick
         max_pick_attempts = 8
@@ -124,7 +121,7 @@ class MoveItDemo:
         rospy.loginfo("Obteu a posicao do objeto...")     
 
         grasp_pose.pose.position.y += 0.01
-        grasp_pose.pose.position.x += 0.02
+        grasp_pose.pose.position.x += 0.03
         grasp_pose.pose.position.z += 0.06
         
         grasps = self.make_grasps(grasp_pose, ['object'])
@@ -385,7 +382,7 @@ class MoveItDemo:
         mesh_uri = "/home/aline/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/bases/waffle_pi_base.stl" 
 
         #0.281 0.306 0.141
-        scale = (0.0011, 0.0011, 0.0011) 
+        scale = (0.001, 0.001, 0.0011) 
 
         # Adicione o TurtleBot como um mesh na cena
         scene.add_mesh(turtlebot_name, turtlebot_pose_stamped, mesh_uri, scale)

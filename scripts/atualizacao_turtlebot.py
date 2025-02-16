@@ -43,14 +43,14 @@ class MoveItDemo:
         hand_group = moveit_commander.MoveGroupCommander("interbotix_gripper", ns="/wx250s")
         
 
-        arm_group.set_max_velocity_scaling_factor(1.0)
-        arm_group.set_max_acceleration_scaling_factor(1.0)
-                
+        arm_group.set_max_velocity_scaling_factor(0.5)
+        arm_group.set_max_acceleration_scaling_factor(0.5)
+        
         # Permite o replanejamento
         arm_group.allow_replanning(True)
         
         # tempo por tentativa de planejamento
-        arm_group.set_planning_time(10)
+        arm_group.set_planning_time(15)
         
         # Limite de tentativas de pick
         max_pick_attempts = 8
@@ -121,7 +121,7 @@ class MoveItDemo:
         rospy.loginfo("Obteu a posicao do objeto...")     
 
         grasp_pose.pose.position.y += 0.01
-        grasp_pose.pose.position.x += 0.02
+        grasp_pose.pose.position.x += 0.03
         grasp_pose.pose.position.z += 0.06
         
         grasps = self.make_grasps(grasp_pose, ['object'])
@@ -135,12 +135,13 @@ class MoveItDemo:
         n_attempts = 0
 
         yaw = 0.0
-        valor = 0.945   
+        valor = 0.7854 
          
         pub = rospy.Publisher('/turtle_pose', PoseStamped, queue_size=10) 
         
         publica = rospy.Publisher('/attach', Bool, queue_size=10) 
         
+        publ = rospy.Publisher('/robot_moveu', Bool, queue_size=10)
         rospy.Subscriber('/robot_moveu', Bool, self.robot_moveu_callback)
         
         # Loop de tentativas de planejamento e execução
@@ -150,14 +151,12 @@ class MoveItDemo:
             
             object_pose = scene.get_object_poses(['object'])['object']
 
-            grasp_pose = PoseStamped()
-            grasp_pose.header.frame_id = "world" 
             grasp_pose.pose = object_pose
             
             rospy.loginfo("Obteu a posicao do objeto...")     
 
             grasp_pose.pose.position.y += 0.01
-            grasp_pose.pose.position.x += 0.02
+            grasp_pose.pose.position.x += 0.03
             grasp_pose.pose.position.z += 0.06
             
             grasps = self.make_grasps(grasp_pose, ['object'])
@@ -172,8 +171,8 @@ class MoveItDemo:
             print(type(plan))
             print(plan)
             
-            if plan == 1:
-                if yaw != 0.0:           
+            if plan == 1:  
+                if yaw != 0:   
                     rospy.loginfo("Enviando posição para o robô se posicionar no gazebo")
                     
                     object_pose = scene.get_object_poses(['turtlebot3_waffle_pi'])['turtlebot3_waffle_pi']
@@ -199,8 +198,12 @@ class MoveItDemo:
                     arm_group.set_support_surface_name('turtlebot3_waffle_pi')
                     rospy.loginfo("cena atualizada")
                     rospy.sleep(3)
+            
                 
+                publ.publish(True)                
                 result = arm_group.pick ("object", grasps)
+                if result != MoveItErrorCodes.SUCCESS:
+                    plan == -1
                 rospy.sleep(1)              
 
             else:
@@ -457,7 +460,7 @@ class MoveItDemo:
             mesh_uri = "/home/aline/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/bases/waffle_pi_base.stl" 
 
             #0.281 0.306 0.141
-            scale = (0.0011, 0.0011, 0.0011) 
+            scale = (0.001, 0.001, 0.0011) 
             
             scene.add_mesh(nome_robô, turtlebot_pose, mesh_uri, scale)
             rospy.loginfo(f"Orientação do robô '{nome_robô}' atualizada com sucesso.")
@@ -541,7 +544,7 @@ class MoveItDemo:
         mesh_uri = "/home/aline/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/bases/waffle_pi_base.stl" 
 
         #0.281 0.306 0.141
-        scale = (0.0011, 0.0011, 0.0011) 
+        scale = (0.001, 0.001, 0.0011) 
 
         # Adicione o TurtleBot como um mesh na cena
         scene.add_mesh(turtlebot_name, turtlebot_pose_stamped, mesh_uri, scale)

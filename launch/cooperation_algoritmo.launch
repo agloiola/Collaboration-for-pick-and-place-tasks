@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  
+  <node pkg="cooperation_widowx_turtlebot3" name="navigation" type="navigation.py"/>
+  <node pkg="cooperation_widowx_turtlebot3" name="detach_again" type="detach_again.py"/> 
+  <node pkg="cooperation_widowx_turtlebot3" name="attach" type="attach.py"/>   
+  <node pkg="cooperation_widowx_turtlebot3" name="navegation_nova_pose" type="navigation_nova_pose.py"/> 
+  
+   <group ns="wx250s">
+    	<node pkg="cooperation_widowx_turtlebot3" name="atualizacao_turtlebot" type="atualizacao_turtlebot.py"/>
+  </group>
+
+</launch>
+
+<!-- <node pkg="cooperation_widowx_turtlebot3" name="detach" type="detach.py"/>  <node pkg="cooperation_widowx_turtlebot3" name="attach" type="attach.py"/>  -->
+
