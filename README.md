@@ -40,7 +40,7 @@ O fluxo de execução ocorre da seguinte forma:
 - [Arquitetura do Sistema](#arquitetura-do-sistema)  
 - [Pré-requisitos](#pré-requisitos)  
 - [Instalação](#instalação)  
-- [Execução da Simulação](#execução-da-simulação)  
+- [Execução ](#execução)  
 
 ## Pré-requisitos
 
