@@ -1,14 +1,16 @@
-# Cooperação entre Robô Móvel (TurtleBot3) e Braço Robótico (WidowX 250S )para Tarefas de Pick and Place
+# Cooperação entre Robô Móvel e Braço Robótico para Tarefas de Pick and Place
 
 Este repositório apresenta a implementação utilizada no artigo **"Collaboration between UGV and robotic arm for pick and place tasks"**.
 
 O foco principal deste projeto é a implementação de um algoritmo de reorientação do robô móvel, permitindo que o robô se alinhe corretamente no ambiente para possibilitar a cooperação com um manipulador robótico durante uma tarefa de pick and place.
 
+O trabalho completo pode ser acessado em: https://ieeexplore.ieee.org/document/11066164
+
 ---
 
 # Objetivo
 
-O objetivo deste projeto é desenvolver uma simulação que demonstre a cooperação entre um robô móvel e um braço robótico para a execução de tarefas de manipulação de objetos, com impelemetação de um algoritmo de reposicionamneto do robo movel.
+O objetivo deste projeto é desenvolver uma simulação que demonstre a cooperação entre o robô móvel Turtlebot3 e o braço robótico WidowX-250s para a execução de tarefas de manipulação de objetos, com impelemetação de um algoritmo de reposicionamneto do robo movel.
 
 No sistema proposto:
 
@@ -21,7 +23,7 @@ No sistema proposto:
 
 ## Arquitetura do Sistema
 
-O sistema é baseado na comunicação entre diferentes nós do **ROS**, responsáveis pela navegação do robô móvel e pela manipulação do objeto pelo braço robótico.
+O sistema é baseado na comunicação entre diferentes nós do ROS, responsáveis pela navegação do robô móvel e pela manipulação do objeto pelo braço robótico.
 
 O fluxo de execução ocorre da seguinte forma:
 
@@ -89,31 +91,24 @@ Siga estas etapas para configurar o ambiente de simulação:
    cd ~/catkin_ws
    catkin_make
    source devel/setup.bash
+## Execução
 
-## Execução da Simulação
+Após concluir a instalação de todos os pacotes, siga os passos abaixo para executar a simulação do sistema cooperativo:
 
-Após concluir a instalação de todos os pacotes, siga os passos abaixo para executar a simulação do sistema cooperativo.
+1. Inicie o ambiente de simulação:
 
-1. Inicie o ambiente de simulação
 
-Primeiro, inicie o ambiente no Gazebo, juntamente com o mapa e o MoveIt.
-
-```bash
-roslaunch Collaboration-for-pick-and-place-tasks wx250s_turtlebot3.launch
-
+   Primeiro, inicie o ambiente no Gazebo, juntamente com o mapa e o MoveIt:
+   ```bash
+   roslaunch Collaboration-for-pick-and-place-tasks wx250s_turtlebot3.launch
+   
 Este comando inicializa o ambiente de simulação no Gazebo, contendo o braço robótico e o robô móvel, além do RViz e do MoveIt, que são utilizados para planejar e executar os movimentos do braço robótico, e o mapa do ambiente de simulação para a navegação do TurtleBot3.
 
-
-2. EExecute o algoritmo de pick and place com reorientação do robô móvel
-'''bash
-roslaunch Collaboration-for-pick-and-place-tasks cooperation_algoritmo.launch
+2. Execute o algoritmo de pick and place com reorientação do robô móvel
+   
+   Abra um novo um terminal e execute o comando a seguir para iniciar o mapa do ambiente de simulação:
+   ```bash
+   roslaunch Collaboration-for-pick-and-place-tasks cooperation_algoritmo.launch
 
 Este comando inicializa todo o sistema cooperativo, incluindo navegação, reorientação do robô móvel e a execução da tarefa de pick and place.
 
-
-
-## Artigo
-
-O trabalho completo pode ser acessado em:
-
-https://ieeexplore.ieee.org/document/11066164
