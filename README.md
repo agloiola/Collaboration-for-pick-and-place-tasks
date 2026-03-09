@@ -41,8 +41,7 @@ O fluxo de execução ocorre da seguinte forma:
 - [Pré-requisitos](#pré-requisitos)  
 - [Instalação](#instalação)  
 - [Execução da Simulação](#execução-da-simulação)  
-- [Artigo](#artigo)
-- 
+
 ## Pré-requisitos
 
 Antes de começar, certifique-se de que você tenha o seguinte instalado e configurado:
