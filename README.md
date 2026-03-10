@@ -2,24 +2,11 @@
 
 Este repositório apresenta a implementação utilizada no artigo **"Collaboration between UGV and robotic arm for pick and place tasks"**.
 
-O foco principal deste projeto é a implementação de um algoritmo de reorientação do robô móvel, permitindo que o robô se alinhe corretamente no ambiente para possibilitar a cooperação com um manipulador robótico durante uma tarefa de pick and place.
+O foco principal deste projeto é desenvolver uma simulação que demonstre a cooperação entre o robô móvel TurtleBot3 e o braço robótico WidowX-250S para a execução de tarefas de manipulação de objetos, com a implementação de um algoritmo de reposicionamento do robô móvel, permitindo que o robô se alinhe corretamente no ambiente para possibilitar a cooperação com um manipulador robótico durante uma tarefa de pick and place.
 
 O trabalho completo pode ser acessado em: https://ieeexplore.ieee.org/document/11066164
 
 ---
-
-# Objetivo
-
-O objetivo deste projeto é desenvolver uma simulação que demonstre a cooperação entre o robô móvel Turtlebot3 e o braço robótico WidowX-250s para a execução de tarefas de manipulação de objetos, com impelemetação de um algoritmo de reposicionamneto do robo movel.
-
-No sistema proposto:
-
-1. O robô móvel navega até uma posição pré-definida no ambiente transportando um objeto.
-2. Um algoritmo de reorientação do robô móvel ajusta sua orientação final para permitir o alinhamento com o manipulador.
-3. O braço robótico detecta a chegada do robô móvel.
-4. O manipulador executa a tarefa de pick and place, coletando o objeto que está sobre o robô móvel.
-5. O objeto é então posicionado em outro local do ambiente.
-
 
 ## Arquitetura do Sistema
 
@@ -36,7 +23,6 @@ O fluxo de execução ocorre da seguinte forma:
 
 ## Índice
 
-- [Objetivo](#objetivo)  
 - [Arquitetura do Sistema](#arquitetura-do-sistema)  
 - [Pré-requisitos](#pré-requisitos)  
 - [Instalação](#instalação)  
