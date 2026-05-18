@@ -6,12 +6,21 @@ O foco principal deste projeto é desenvolver uma simulação que demonstre a co
 
 O trabalho completo pode ser acessado em: https://ieeexplore.ieee.org/document/11066164
 
+- Demonstração da simulação de cooperação entre o TurtleBot3 e o braço robótico WidowX-250S no Gazebo:
+
+  ![Demonstração da simulação no Gazebo](images/exemplo_teste.jpg)
+
+- Demonstração no MoveIt:
+
+  <p align="center">
+    <img src="images/teste_moveit.png" alt="Demonstração do MoveIt" width="450"/>
+  </p>
 ---
 
 ## Arquitetura do Sistema
 
 O sistema é baseado na comunicação entre diferentes nós do ROS, responsáveis pela navegação do robô móvel e pela manipulação do objeto pelo braço robótico.
-
+  
 O fluxo de execução ocorre da seguinte forma:
 
 1. Inicialização do ambiente de simulação no Gazebo.
