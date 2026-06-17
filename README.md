@@ -85,9 +85,6 @@ catkin_make
 source devel/setup.bash
 ```
 
-O pacote disponibiliza serviços ROS para anexar e desanexar links de modelos no Gazebo, sendo utilizado neste trabalho para representar a fixação temporária do objeto ao TurtleBot3 durante a etapa de navegação.
-
-
 4. Clone o repositório de cooperação para o seu workspace ROS:
    
     Por fim, instale este repositório, que contém a implementação do algoritmo de reorientação do robô móvel e os arquivos responsáveis pela integração entre o WidowX-250S e o TurtleBot3:
