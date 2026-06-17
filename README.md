@@ -2,7 +2,7 @@
 
 Este repositório apresenta a implementação utilizada no artigo **"Collaboration between UGV and robotic arm for pick and place tasks"**.
 
-O foco principal deste projeto é desenvolver uma simulação que demonstre a cooperação entre o robô móvel TurtleBot3 e o braço robótico WidowX-250S para a execução de tarefas de manipulação de objetos, com a implementação de um algoritmo de reposicionamento do robô móvel, permitindo que o robô se alinhe corretamente no ambiente para possibilitar a cooperação com um manipulador robótico durante uma tarefa de pick and place.
+O foco principal deste projeto é desenvolver uma simulação que demonstre a cooperação entre o robô móvel TurtleBot3 e o braço robótico WidowX-250S na execução de tarefas de manipulação de objetos. Para isso, foi implementado um algoritmo de reorientação do robô móvel, permitindo que o UGV ajuste sua orientação no ambiente para possibilitar a cooperação com o manipulador robótico durante uma tarefa de pick and place com objetos assimétricos.
 
 O trabalho completo pode ser acessado em: https://ieeexplore.ieee.org/document/11066164
 
@@ -10,8 +10,7 @@ O trabalho completo pode ser acessado em: https://ieeexplore.ieee.org/document/1
 
   ![Demonstração da simulação no Gazebo](images/exemplo_teste.jpg)
 
-- Demonstração no MoveIt:
-
+- Demonstração do algoritmo de reorientação do UGV no MoveIt:
   <p align="center">
     <img src="images/teste_moveit.png" alt="Demonstração do MoveIt" width="450"/>
   </p>
@@ -75,8 +74,21 @@ Siga estas etapas para configurar o ambiente de simulação:
    cd ~/catkin_ws
    catkin_make
    source devel/setup.bash
+3. Clone o pacote `gazebo_ros_link_attacher`
 
-3. Clone o repositório de cooperação para o seu workspace ROS:
+Neste projeto, esse pacote é empregado para manter o objeto ligado ao TurtleBot3 enquanto o robô se desloca.
+```bash
+cd ~/catkin_ws/src
+git clone https://github.com/pal-robotics/gazebo_ros_link_attacher.git
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+```
+
+O pacote disponibiliza serviços ROS para anexar e desanexar links de modelos no Gazebo, sendo utilizado neste trabalho para representar a fixação temporária do objeto ao TurtleBot3 durante a etapa de navegação.
+
+
+4. Clone o repositório de cooperação para o seu workspace ROS:
    
     Por fim, instale este repositório, que contém a implementação do algoritmo de reorientação do robô móvel e os arquivos responsáveis pela integração entre o WidowX-250S e o TurtleBot3:
    ```bash
