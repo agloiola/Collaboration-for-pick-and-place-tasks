@@ -74,18 +74,20 @@ Siga estas etapas para configurar o ambiente de simulação:
    cd ~/catkin_ws
    catkin_make
    source devel/setup.bash
+   
 3. Clone o pacote `gazebo_ros_link_attacher`
 
-Neste projeto, esse pacote é empregado para manter o objeto ligado ao TurtleBot3 enquanto o robô se desloca.
-```bash
-cd ~/catkin_ws/src
-git clone https://github.com/pal-robotics/gazebo_ros_link_attacher.git
-cd ~/catkin_ws
-catkin_make
-source devel/setup.bash
-```
+    Neste projeto, esse pacote é empregado para manter o objeto ligado ao TurtleBot3 enquanto o robô se desloca.
+   
+    ```bash
+    cd ~/catkin_ws/src
+    git clone https://github.com/pal-robotics/gazebo_ros_link_attacher.git
+    cd ~/catkin_ws
+    catkin_make
+    source devel/setup.bash
+    ```
 
-4. Clone o repositório de cooperação para o seu workspace ROS:
+5. Clone o repositório de cooperação para o seu workspace ROS:
    
     Por fim, instale este repositório, que contém a implementação do algoritmo de reorientação do robô móvel e os arquivos responsáveis pela integração entre o WidowX-250S e o TurtleBot3:
    ```bash
